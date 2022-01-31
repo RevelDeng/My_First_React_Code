@@ -93,6 +93,24 @@ function TextareaForm() {
   )
 }
 
+function SelectForm() {
+  const [myTree, setMyTree] = useState("Maple")
+
+  const handleChange = (event) => {
+    setMyTree(event.target.value)
+  }
+
+  return (
+    <form>
+      <select value={myTree} onChange={handleChange}>
+        <option value="Oak">Oak</option>
+        <option value="Pine">Pine</option>
+        <option value="Maple">Maple</option>
+      </select>
+    </form>
+  )
+}
+
 ReactDOM.render(
   myfirstelement,
   document.getElementById('root')
@@ -111,4 +129,9 @@ ReactDOM.render(
 ReactDOM.render(
   <TextareaForm/>,
   document.getElementById('fourth_root')
+)
+
+ReactDOM.render(
+  <SelectForm/>,
+  document.getElementById('fifth_root')
 )
