@@ -42,22 +42,53 @@ function Garage() {
 }
 
 function Form() {
-  const [name, setName] = useState("")
+  const [inputs, setInputs] = useState({})
+
+  const handleChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    setInputs(values => ({...values, [name]: value}))
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert("Your name: ${name}")
+    alert("Your username: " + inputs.username + " Your age: " + inputs.age)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>Enter your name:
         <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name='username'
+          value={inputs.username || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>Enter your age:
+        <input
+          type='number'
+          name='age'
+          value={inputs.age || ""}
+          onChange={handleChange}
         />
       </label>
       <input type="submit"/>
+    </form>
+  )
+}
+
+function TextareaForm() {
+  const [textarea, setTextarea] = useState(
+    "text area content is set by value attribute"
+  )
+
+  const handleChange = (event) => {
+    setTextarea(event.target.value)
+  }
+
+  return (
+    <form>
+      <textarea value={textarea} onChange={handleChange}/>
     </form>
   )
 }
@@ -75,4 +106,9 @@ ReactDOM.render(
 ReactDOM.render(
   <Form/>,
   document.getElementById('third_root')
+)
+
+ReactDOM.render(
+  <TextareaForm/>,
+  document.getElementById('fourth_root')
 )
