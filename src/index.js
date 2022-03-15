@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./pages/Layout";
@@ -132,6 +132,23 @@ function App() {
   )
 }
 
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [supercount, setSupercount] = useState(0);
+
+  useEffect(() => {
+    setSupercount(() => count * 3);
+  }, [count]);
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>+</button>
+      <p>Super Count: {supercount}</p>
+    </>
+  )
+}
+
 ReactDOM.render(
   myfirstelement,
   document.getElementById('root')
@@ -160,4 +177,9 @@ ReactDOM.render(
 ReactDOM.render(
   <App/>,
   document.getElementById('sixth_root')
+)
+
+ReactDOM.render(
+  <Counter/>,
+  document.getElementById('seventh_div')
 )
