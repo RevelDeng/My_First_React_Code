@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext, useContext} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./pages/Layout";
@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
+import reactDom from 'react-dom';
 
 var x = 5
 
@@ -182,4 +183,42 @@ ReactDOM.render(
 ReactDOM.render(
   <Counter/>,
   document.getElementById('seventh_div')
+)
+
+const NameContext = createContext();
+
+function ContextComponent1() {
+  const [name, setName] = useState("name tag");
+
+  return (
+    <NameContext.Provider value={name}>
+      <h1>{`Hello ${name}!`}</h1>
+      <ContextComponent2 name={name}/>
+    </NameContext.Provider>
+  );
+}
+
+function ContextComponent2() {
+  return (
+    <>
+      <h1>Context Component 2</h1>
+      <ContextComponent3/>
+    </>
+  )
+}
+
+function ContextComponent3() {
+  const name = useContext(NameContext);
+
+  return (
+    <>
+      <h1>Context Component 3</h1>
+      <h2>{`Hello again, ${name}`}</h2>
+    </>
+  )
+}
+
+ReactDOM.render(
+  <ContextComponent1/>,
+  document.getElementById('eighth_div')
 )
