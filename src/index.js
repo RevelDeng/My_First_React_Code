@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createContext, useContext, useRef} from 'react';
+import React, {useState, useEffect, createContext, useContext, useRef, useReducer} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./pages/Layout";
@@ -248,4 +248,11 @@ function RefComponent() {
 ReactDOM.render(
   <RefComponent/>,
   document.getElementById('ninth_div')
+)
+
+// function 
+
+ReactDOM.render(
+  <ReducerComponent/>,
+  document.getElementById('tenth_div')
 )
