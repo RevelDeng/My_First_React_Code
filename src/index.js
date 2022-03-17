@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createContext, useContext} from 'react';
+import React, {useState, useEffect, createContext, useContext, useRef} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./pages/Layout";
@@ -221,4 +221,31 @@ function ContextComponent3() {
 ReactDOM.render(
   <ContextComponent1/>,
   document.getElementById('eighth_div')
+)
+
+function RefComponent() {
+  const [inputValue, setInputValue] = useState("")
+  const previousInputValue = useRef("")
+
+  useEffect(() => {
+    previousInputValue.current = inputValue
+  }, [inputValue])
+
+  return (
+    <>
+      Ref Input:{" "}
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
+    </>
+  )
+}
+
+ReactDOM.render(
+  <RefComponent/>,
+  document.getElementById('ninth_div')
 )
