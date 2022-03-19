@@ -250,11 +250,24 @@ ReactDOM.render(
   document.getElementById('ninth_div')
 )
 
-function ReducerComponent() {
+const initialTodos = [
+  {
+    id: 1,
+    title: "Todo 1",
+    complete: false
+  },
+  {
+    id: 2,
+    title: "Todo 2",
+    complete: false
+  }
+]
+
+function Todos() {
   
 }
 
 ReactDOM.render(
-  <ReducerComponent/>,
+  <Todos/>,
   document.getElementById('tenth_div')
 )
