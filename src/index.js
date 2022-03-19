@@ -250,7 +250,9 @@ ReactDOM.render(
   document.getElementById('ninth_div')
 )
 
-// function 
+function ReducerComponent() {
+  
+}
 
 ReactDOM.render(
   <ReducerComponent/>,
