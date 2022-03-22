@@ -280,7 +280,7 @@ const reducer = (state, action) => {
 }
 
 function Todos() {
-  
+  const [todos, dispatch] = useReducer(reducer, initialTodos)
 }
 
 ReactDOM.render(
