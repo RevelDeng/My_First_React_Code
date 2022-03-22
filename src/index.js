@@ -281,6 +281,10 @@ const reducer = (state, action) => {
 
 function Todos() {
   const [todos, dispatch] = useReducer(reducer, initialTodos)
+
+  const handleComplete = (todo) => {
+    dispatch({type: "COMPLETE", id: todo.id})
+  }
 }
 
 ReactDOM.render(
