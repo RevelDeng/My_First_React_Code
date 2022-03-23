@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createContext, useContext, useRef, useReducer} from 'react';
+import React, {useState, useEffect, createContext, useContext, useRef, useReducer, memo} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./pages/Layout";
