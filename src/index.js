@@ -307,3 +307,21 @@ ReactDOM.render(
   <Todos/>,
   document.getElementById('tenth_div')
 )
+
+function toFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+
+function tryConvert(temperature, convert) {
+  const input = parseFloat(temperature);
+  if (Number.isNaN(input)) {
+    return "";
+  }
+  const output = convert(input)
+  console.log(output.toString())
+  const rounded = output
+  return rounded.toString()
+}
+
+console.log(tryConvert('10.22', toFahrenheit))
+console.log(tryConvert('abc', toFahrenheit))
